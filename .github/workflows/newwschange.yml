@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -20,21 +20,17 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '2.7'
-      working-directory: ./src
 
     - name: Install dependencies
       run: bundle install
-      working-directory: ./src
 
     - name: Run tests
       run: bundle exec rspec
-      working-directory: ./src
 
     - name: Run Semgrep SAST
       uses: returntocorp/semgrep-action@v1
       with:
         config: "p/r2c-security-audit"
-      working-directory: ./src
 
     - name: Run OWASP ZAP DAST
       uses: zaproxy/action-full-scan@v0.5.0
