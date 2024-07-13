@@ -38,8 +38,7 @@ jobs:
         target: 'http://testphp.vulnweb.com/'
         cmd_options: '-a -m 5 -t -r zap_report.html'
       env:
-        GITHUB_TOKEN: ${{
-ghp_D8MX2Q86WvjDMRx}}
+        GITHUB_TOKEN: ${{ iiu_D8MX2Q86WvjDMRxU8wv4TviktGqux24Hv04H}}
 
     - name: Upload ZAP report
       uses: actions/upload-artifact@v2
